@@ -24,9 +24,9 @@ Write a function named addOne that, given an array of numbers, uses map to retur
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  const newArray = arr.map(item => {
+  const newArray = arr.map(number => {
     return (
-      item + 1
+      number + 1
     );
   });
 
@@ -60,7 +60,12 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  const newArray = [];
+  for(let i = 0; i < arr.length; i++) {
+    newArray.push(Math.pow(2, arr[i]));
+  }
+
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -233,7 +238,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forLoopTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forLoopTwoToThe([0, 4, 5]).length).toStrictEqual(3);
