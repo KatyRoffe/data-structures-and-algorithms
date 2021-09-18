@@ -9,11 +9,11 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
- const newArray = [];
- arr.forEach(number => {
-   newArray.push(number + 1)
- })
- return newArray;
+  const newArray = [];
+  arr.forEach(number => {
+    newArray.push(number + 1);
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,8 +27,8 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 const addExclamation = (arr) => {
   const excitedArray = [];
   arr.forEach(string => {
-    excitedArray.push(string + '!')
-  })
+    excitedArray.push(string + '!');
+  });
   return excitedArray;
 };
 
@@ -44,7 +44,7 @@ const allUpperCase = (arr) => {
   const capsLockArray = [];
   arr.forEach(string => {
     capsLockArray.push(string.toUpperCase());
-  })
+  });
   return capsLockArray;
 };
 
@@ -65,6 +65,7 @@ const greeting = (word) => {
 
 const speaker = (words, callback) => {
   const newWordsArray = [];
+
   words.forEach(string => {
     newWordsArray.push(callback(string));
   });
@@ -146,17 +147,17 @@ const fizzbuzz = (arr) => {
   arr.forEach(number => {
     if (number % 3 === 0 && number % 5 !== 0){
       fizzyArray.push('Fizz');
-    } 
+    }
     else if (number % 5 === 0 && number % 3 !== 0){
       fizzyArray.push('Buzz');
-    } 
+    }
     else if (number % 5 === 0 && number % 3 === 0){
       fizzyArray.push('Fizz Buzz');
     }
     else {
-      fizzyArray.push(number)
+      fizzyArray.push(number);
     }
-  })
+  });
   return fizzyArray;
 };
 
