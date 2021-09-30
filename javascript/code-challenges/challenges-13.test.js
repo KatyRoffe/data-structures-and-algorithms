@@ -7,7 +7,8 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
+  let lengthArray = arr.map(str => str.length);
+  return lengthArray.indexOf(Math.max(...lengthArray));
 };
   
 /* ------------------------------------------------------------------------------------------------
@@ -18,9 +19,7 @@ Write a function named firstLetters that takes in an array of strings and return
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
 
-const firstLetters = (arr) => {
-  // Solution code here...
-};
+const firstLetters = (arr) => arr.map(string => string.charAt(0));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -30,9 +29,7 @@ Write a function named findHappiness that takes in an array of strings and retur
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const findHappiness = (arr) => {
-  // Solution code here...
-};
+const findHappiness = (arr) => arr.filter(str => str.includes(':)'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -42,9 +39,7 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
-};
+const standardizePhoneNumbers = (arr) => arr.map(string => string.replace(/\D/g, ''));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 
@@ -55,7 +50,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let newString = str;
+  for(let i = str.length - 1; i>=0; i--) {
+    if(i % 2 === 0) {
+      newString = newString.replace(newString[i], '');
+    }
+  }
+  return newString;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +66,17 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let count=0;
+  arr.forEach(string => {
+    if (string.includes(':)')){
+      count++;
+    }
+  });
+  if(count === arr.length){
+    return true;
+  }else{
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
