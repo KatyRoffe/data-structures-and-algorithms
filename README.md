@@ -20,6 +20,6 @@ To run your tests
 
 ### 401 Data Structures, Code Challenges
 
-- Code Challenge 01: [Array Reverse](./401-challenges/arrayReverse/README.md)
-- Code Challenge 02: [Array Insert & Shift](./401-challenges/arrayInsertShift/README.md)
-- Code Challenge 03: [Array Binary Search](./401-challenges/arrayBinarySearch/README.md)
+- Code Challenge 01: [Array Reverse](./javascript/401-challenges/arrayReverse/README.md)
+- Code Challenge 02: [Array Insert & Shift](./javascript/401-challenges/arrayInsertShift/README.md)
+- Code Challenge 03: [Array Binary Search](./javascript/401-challenges/arrayBinarySearch/README.md)
