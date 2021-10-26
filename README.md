@@ -23,3 +23,5 @@ To run your tests
 - Code Challenge 01: [Array Reverse](./javascript/401-challenges/arrayReverse/README.md)
 - Code Challenge 02: [Array Insert & Shift](./javascript/401-challenges/arrayInsertShift/README.md)
 - Code Challenge 03: [Array Binary Search](./javascript/401-challenges/arrayBinarySearch/README.md)
+- Code Challenge 04: Pair Programming / Practice Whiteboard Interview
+- Code Challenge 05/06: [Linked Lists Implmentation / Insertions](./javascript/linked-list/README.md)
