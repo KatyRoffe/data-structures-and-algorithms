@@ -104,7 +104,30 @@ class LinkedList {
     string += '{null}';
     return string;
   }
+
+  // brings in one argument (position) and returns the value of that argument
+  kthFromEnd(k) {
+    let current = this.head;
+    if (current === null || k < 1) {
+      return null;
+    }
+    let markerFirst = this.head;
+    let markerSecond = this.head;
+
+    for (let i = 0; i < k - 1; i += 1) {
+      if (markerSecond === null) {
+        return null;
+      }
+      markerSecond = markerSecond.next;
+    }
+    while (markerSecond.next !== null) {
+      markerFirst = markerFirst.next;
+      markerSecond = markerSecond.next;
+    }
+    return markerSecond.value;
+  }
 }
+
 
 const linkedList = new LinkedList();
 
