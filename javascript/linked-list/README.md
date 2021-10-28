@@ -23,9 +23,25 @@ Extend the linked list to include the new methods of `append`, `insertBefore`, a
 5. Can successfully insert after a node in the middle of the linked list
 6. Can successfully insert a node after the last node of the linked list
 
+## Challenge 06: Linked List insertion
+
+Extend the linked list to include the new method of `k-thFromEnd`, where the method returns the value of the node that is `k` places from the end of the list.
+
+1. Where k is greater than the length of the linked list
+2. Where k and the length of the list are the same
+3. Where k is not a positive integer
+4. Where the linked list is of a size 1
+5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+
 ## Whiteboard Process
 
+### Challenge 06
+
 ![linked-list-insertions whiteboard](./linked-list-insertions.PNG)
+
+### Challenge 07
+
+![linked-list-kth-from-end whiteboard](./linked-list-kth-from-end.PNG)
 
 ## Approach & Efficiency
 
@@ -44,6 +60,12 @@ Used code established in challenge 05 to continue building additional methods an
 - `append()`: O(1)
 - `insertBefore()`: O(1)
 - `insertAfter()`: O(1)
+
+### CHALLENGE 07
+
+Used code established in challenges 05 & 06 to continue building and additional method and testing. 
+
+- `kthFromEnd()`: O(N)
 
 ## Solution
 
