@@ -33,6 +33,13 @@ Extend the linked list to include the new method of `k-thFromEnd`, where the met
 4. Where the linked list is of a size 1
 5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
 
+## Challenge 06: Linked List insertion
+
+Extend the linked list to include the new method of `zipList`, where the method combines two linked list like a zipper, one node after another.
+
+1. Where it should return a linked list
+2. Where it should return a linked list if the argument lists are different lengths
+
 ## Whiteboard Process
 
 ### Challenge 06
@@ -42,6 +49,10 @@ Extend the linked list to include the new method of `k-thFromEnd`, where the met
 ### Challenge 07
 
 ![linked-list-kth-from-end whiteboard](./linked-list-kth-from-end.PNG)
+
+### Challenge 08
+
+![linked-list-zip whiteboard](./linked-list-zip.PNG)
 
 ## Approach & Efficiency
 
@@ -66,6 +77,12 @@ Used code established in challenge 05 to continue building additional methods an
 Used code established in challenges 05 & 06 to continue building and additional method and testing. 
 
 - `kthFromEnd()`: O(N)
+
+### CHALLENGE 08
+
+Thought of three different possible approachs. One was utilizing a series of insertAfters. One was using append multiple times. But I thought using a simple comparison and bringing in values one after another would be the most efficient timewise. 
+
+- `zipList()`: O(1)  (hopefully)
 
 ## Solution
 
