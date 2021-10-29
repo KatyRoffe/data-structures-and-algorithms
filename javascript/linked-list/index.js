@@ -126,6 +126,30 @@ class LinkedList {
     }
     return markerSecond.value;
   }
+
+  zipLists(firstList, secondList) {
+    let firstListCurrent = firstList.head;
+    let secondListCurrent = secondList.head;
+    let firstListNext;
+    let secondListNext;
+
+    while (firstListCurrent && secondListCurrent) {
+      if (firstListCurrent.next === null) {
+        firstListCurrent.next = secondListCurrent;
+        break;
+      } else {
+        firstListNext = firstListCurrent.next;
+        secondListNext = secondListCurrent.next;
+
+        secondListCurrent.next = firstListNext;
+        firstListCurrent.next = secondListCurrent;
+
+        firstListCurrent = firstListNext;
+        secondListCurrent = secondListNext;
+      }
+    }
+    return firstList;
+  }
 }
 
 

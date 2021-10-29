@@ -24,4 +24,4 @@ To run your tests
 - Code Challenge 02: [Array Insert & Shift](./javascript/401-challenges/arrayInsertShift/README.md)
 - Code Challenge 03: [Array Binary Search](./javascript/401-challenges/arrayBinarySearch/README.md)
 - Code Challenge 04: Pair Programming / Practice Whiteboard Interview
-- Code Challenge 05/06/07: [Linked Lists Implmentation / Insertions / kth from end](./javascript/linked-list/README.md)
+- Code Challenge 05/06/07/08: [Linked Lists Implmentation / Insertions / kth from end / zipList](./javascript/linked-list/README.md)

@@ -1,30 +1,179 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../index');
+const { LinkedList, Node } = require('../index');
 
-describe('This is to test a linked list', () => {
-  xit('Can successfully instantiate an empty linked list', () => {
+
+describe('Testing Linked List', () => {
+
+  it('Can instantiate an empty linked list', () => {
     const list = new LinkedList();
-    console.log(list);
-    expect(list.head).toBe(null);
-  });
-  xit('can properly insert into the linked list', () => {
-    const list = new LinkedList();
-    console.log(list);
-    list.insert(27);
-    expect(list.head.value).toBe(27);
+    expect(list.head).toStrictEqual(null);
   });
 
-  xit('head property will properly point to the first node in the linked list', () => {
+  it('Can insert a value to the head of a linked list', () => {
     const list = new LinkedList();
-    console.log(list);
-    expect(list.head).toEqual(null);
+    list.head = new Node(5);
+    list.insert(111);
+    expect(list.head.value).toStrictEqual(111);
   });
-  xit('can properly insert multiple nodes into the linked list', () => {
+
+  it('Will return true if value is present in linked list', () => {
     const list = new LinkedList();
-    console.log(list);
-    list.insert('awesome possum', 6);
-    expect(list.head.value).toBe('awesome possum', 6);
+    list.head = new Node(10);
+    expect(list.includes(10)).toStrictEqual(true);
   });
+
+  it('Will return false if value is not present in linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(11);
+    expect(list.includes(1111)).toStrictEqual(false);
+  });
+
+  it('Will return a collection of all values in linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    list.head.next = new Node(15);
+    list.head.next.next = new Node(20);
+    list.head.next.next.next = new Node(25);
+    expect(list.toString()).toStrictEqual('{10} -> {15} -> {20} -> {25} -> NULL');
+  });
+
+  it('Head property points to the first node in linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    list.head.next = new Node(15);
+    list.head.next.next = new Node(20);
+    list.head.next.next.next = new Node(25);
+    expect(list.head.value).toStrictEqual(10);
+  });
+
+  it('Can successfully add a node to the end of the linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    const currentListTail = list.head.next = new Node(30);
+    list.append(300);
+    expect(currentListTail.next.value).toStrictEqual(300);
+  });
+
+  it('Can successfully add multiple nodes to the end of a linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    const currentListTail = list.head.next = new Node(25);
+    list.append(300);
+    list.append(400);
+    expect(currentListTail.next.next.value).toStrictEqual(400);
+    list.append(500);
+    expect(currentListTail.next.next.next.value).toStrictEqual(500);
+  });
+
+  it('Can successfully insert a node before a node in the middle of a linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    list.head.next = new Node(25);
+    list.head.next.next = new Node(30);
+    list.insertBefore(25, 1234);
+    expect(list.head.next.value).toStrictEqual(1234);
+  });
+
+  it('Can successfully insert a node before the first node of a linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    list.insertBefore(10, 4321);
+    expect(list.head.value).toStrictEqual(4321);
+  });
+
+  it('Can successfully insert after a node in the middle of the linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    let targetNode = list.head.next = new Node(25);
+    list.head.next.next = new Node(2);
+    list.insertAfter(25, 500);
+    expect(targetNode.next.value).toStrictEqual(500);
+  });
+
+  it('Can successfully insert a node after the last node of the linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(10);
+    list.head.next = new Node(25);
+    let targetNode = list.head.next.next = new Node(2);
+    list.insertAfter(2, 500);
+    expect(targetNode.next.value).toStrictEqual(500);
+  });
+
+  it('Should return an error where k is greater than the length of the linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(1);
+    list.head.next = new Node(2);
+    list.head.next.next = new Node(3);
+    list.head.next.next.next = new Node(4);
+    expect(list.kthFromEnd(10)).toBe(`10 is greater than length of linked list`);
+  });
+
+  it('Should return an error where k and the length of the list are the same', () => {
+    const list = new LinkedList();
+    list.head = new Node(1);
+    list.head.next = new Node(2);
+    list.head.next.next = new Node(3);
+    list.head.next.next.next = new Node(4);
+    expect(list.kthFromEnd(4)).toBe(`4 is greater than length of linked list`);
+  });
+
+  it('Should return an error where k is not a positive integer', () => {
+    const list = new LinkedList();
+    list.head = new Node(1);
+    list.head.next = new Node(2);
+    expect(list.kthFromEnd(-10)).toBe(`Negative numbers not allowed`);
+  });
+
+  it('Should return a value where the linked list is of a size 1', () => {
+    const list = new LinkedList();
+    list.head = new Node(1);
+    expect(list.kthFromEnd(0)).toBe(1);
+  });
+
+  it('Should return a value where k is not at the end, but somewhere in the middle of the linked list', () => {
+    const list = new LinkedList();
+    list.head = new Node(1);
+    list.head.next = new Node(2);
+    list.head.next.next = new Node(3);
+    list.head.next.next.next = new Node(4);
+    expect(list.kthFromEnd(2)).toBe(2);
+  });
+
+
+  it('Should return a zipped linked list', () => {
+
+    const list1 = new LinkedList();
+    list1.head = new Node(1);
+    list1.head.next = new Node(3);
+    list1.head.next.next = new Node(5);
+    list1.head.next.next.next = new Node(7);
+
+    const list2 = new LinkedList();
+    list2.head = new Node(2);
+    list2.head.next = new Node(4);
+    list2.head.next.next = new Node(6);
+    list2.head.next.next.next = new Node(8);
+    let zipLL = list1.zipLists(list1,list2);
+    expect(list1.toString(zipLL)).toBe(`{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> {7} -> {8} -> NULL`);
+
+  });
+
+  it('Should return a zipped linked list if the lists are different lengths', () => {
+
+    const list1 = new LinkedList();
+    list1.head = new Node(1);
+    list1.head.next = new Node(3);
+
+    const list2 = new LinkedList();
+    list2.head = new Node(2);
+    list2.head.next = new Node(4);
+    list2.head.next.next = new Node(6);
+    list2.head.next.next.next = new Node(8);
+    let zipLL = list1.zipLists(list1,list2);
+    expect(list1.toString(zipLL)).toBe(`{1} -> {2} -> {3} -> {4} -> {6} -> {8} -> NULL`);
+
+  });
+
 });
