@@ -30,4 +30,4 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
 
 ## Solution
 
-[See Code Here](./linked-list/index.js)
+[See Code Here](./stack-and-queue.js)
