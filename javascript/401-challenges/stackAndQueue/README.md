@@ -23,7 +23,6 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
 5. Can successfully empty a queue after multiple dequeues
 6. Can successfully instantiate an empty queue
 
-
 ## Whiteboard Process
 
 ## Approach & Efficiency
