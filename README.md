@@ -25,3 +25,4 @@ To run your tests
 - Code Challenge 03: [Array Binary Search](./javascript/401-challenges/arrayBinarySearch/README.md)
 - Code Challenge 04: Pair Programming / Practice Whiteboard Interview
 - Code Challenge 05/06/07/08: [Linked Lists Implmentation / Insertions / kth from end / zipList](./javascript/linked-list/README.md)
+- Code Challenge 10: [Stacks & Queues](./javascript/401-challenges/stackAndQueue/README.md)
