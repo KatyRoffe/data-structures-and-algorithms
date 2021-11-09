@@ -48,6 +48,31 @@ let postOrder = (current) => {
   console.log(current.value);
 };
 
+let findMaxValue = (current) => {
+
+  const findMax = (node) => {
+    if (node === null) {
+      return;
+    }
+
+    let trueMax = node.value;
+    let leftMax = findMax(node.left);
+    let rightMax = findMax(node.right);
+
+    if (leftMax > trueMax) {
+      trueMax = leftMax;
+    }
+
+    if (rightMax > trueMax) {
+      trueMax = rightMax;
+    }
+
+    return trueMax;
+  };
+
+  return findMax(current);
+};
+
 //binary search tree
 class BinarySearchTree {
   constructor() {
