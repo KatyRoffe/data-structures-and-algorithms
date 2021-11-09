@@ -42,4 +42,15 @@ describe('testing binary tree', () => {
 
     expect(postOrder).toEqual('10', '15', '5');
   });
+
+  it('can find the largest number in the tree', () => {
+    const tree = BinaryTree();
+
+    tree.root = new BinaryTree.node(5);
+    tree.root.left = new BinaryTree.node(10);
+    tree.root.right = new BinaryTree.node(15);
+    const max = tree.findMaxValue();
+
+    expect(max).toEqual(15);
+  });
 });
