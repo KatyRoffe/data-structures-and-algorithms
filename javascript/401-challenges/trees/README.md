@@ -1,8 +1,8 @@
 # Trees
 
+## Problem Domain: Code Challenge 15
 
-## Problem Domain
-Code Challenge 15: Instantiate a Binary Tree & Binary Search Tree
+Instantiate a Binary Tree & Binary Search Tree
 
 - Create a Binary Tree class
 - Define a method for each of the depth first traversals:
@@ -22,3 +22,11 @@ Code Challenge 15: Instantiate a Binary Tree & Binary Search Tree
   - Can successfully return a collection from a preorder traversal
   - Can successfully return a collection from an inorder traversal
   - Can successfully return a collection from a postorder traversal
+
+## Problem Domain: Code Challenge 16
+
+ Create the following method for the Binary Tree class:
+  - Find maximum value
+
+## Whiteboard # 16
+
