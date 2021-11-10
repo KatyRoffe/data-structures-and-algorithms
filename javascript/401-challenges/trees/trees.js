@@ -1,5 +1,7 @@
 'use strict';
 
+const { node } = require("../stackAndQueue/pseudoQueue/pseudoQueue");
+
 // node
 class Node {
   constructor(value) {
@@ -72,6 +74,28 @@ let findMaxValue = (current) => {
 
   return findMax(current);
 };
+
+let breadthFirst = (tree) => {
+  let queue = [];
+  let array = [];
+  if (!tree.root) {
+    return 'whoops';
+  } else {
+    queue.unshift(tree.root);
+    array.push(tree.root);
+  }
+  let currentNode = queue.pop();
+  while(currentNode) {
+    if (currentNode.left) {
+      queue.unshift(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.unshift(currentNode.right);
+    }
+    currentNode = queue.pop();
+
+    array.push(currentNode);
+  }
 
 //binary search tree
 class BinarySearchTree {
