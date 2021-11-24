@@ -1,56 +1,162 @@
-'use strict';
+'se struct';
 
-const { BinaryTree } = require('./trees.js');
+const fizzBuzzTree = require('../trees.js');
+const binaryTree = require('../trees.js');
 
-describe('testing binary tree', () => {
-  it('Can successfully return a collection from a pre-order traversal', () => {
 
-    const tree = new BinaryTree();
+describe('Tests binary tree, binary tree search,', () => {
 
-    tree.root = new Node('5');
-    tree.root.left = new Node('10');
-    tree.root.right = new Node('15');
+  const bTree = new binaryTree.bt();
 
-    const preOrder = tree.preOrder();
-    preOrder(tree.root);
 
-    expect(preOrder).toEqual('5', '10,', '15');
+  it('Can successfully instantiate an empty tree', () => {
+
+    expect(bTree.root).toEqual(null);
   });
 
-  it('Can successfully return a collection from an in-order traversal', () => {
-    const tree = BinaryTree();
 
-    tree.root = new Node('5');
-    tree.root.left = new Node('10');
-    tree.root.right = new Node('15');
-
-    const inOrder = tree.inOrder();
-    inOrder(tree.root);
-
-    expect(inOrder).toEqual('10', '5', '15');
+  it('Can successfully instantiate a tree with a single root node', () => {
+    bTree.root = new binaryTree.node(123);
+    expect(bTree.root.value).toEqual(123);
   });
 
-  it('Can successfully return a collection from a post-order traversal', () => {
-    const tree = BinaryTree();
 
-    tree.root = new Node('5');
-    tree.root.left = new Node('10');
-    tree.root.right = new Node('15');
+  it('Can successfully add a left child and right child to a single root node', () => {
+    bTree.root = new binaryTree.node(123);
+    bTree.root.left = new binaryTree.node(345);
+    bTree.root.right = new binaryTree.node(567);
 
-    const postOrder = tree.postOrder();
-    postOrder(tree.root);
-
-    expect(postOrder).toEqual('10', '15', '5');
+    expect(bTree.root.value).toEqual(123);
+    expect(bTree.root.left.value).toEqual(345);
+    expect(bTree.root.right.value).toEqual(567);
   });
 
-  it('can find the largest number in the tree', () => {
-    const tree = BinaryTree();
 
-    tree.root = new BinaryTree.node(5);
-    tree.root.left = new BinaryTree.node(10);
-    tree.root.right = new BinaryTree.node(15);
-    const max = tree.findMaxValue();
+  it('Can successfully return a collection from a preorder traversal', () => {
+    bTree.root = new binaryTree.node(1);
+    bTree.root.left = new binaryTree.node(2);
+    bTree.root.right = new binaryTree.node(3);
 
-    expect(max).toEqual(15);
+    const preOrder = bTree.preOrder();
+    const preOrderTraversal = bTree.preOrderTraversal();
+
+    expect(preOrder).toEqual([1, 2, 3]);
+    expect(preOrderTraversal).toEqual([1, 2, 3]);
   });
+
+
+  it('Can successfully return a collection from an inorder traversal', () => {
+    bTree.root = new binaryTree.node(10);
+    bTree.root.left = new binaryTree.node(2345234);
+    bTree.root.right = new binaryTree.node(44);
+
+    const inOrder = bTree.inOrder();
+
+    expect(inOrder).toEqual([2345234, 10, 44]);
+  });
+
+
+  it('Can successfully return a collection from a postorder traversal', () => {
+
+    bTree.root = new binaryTree.node(9);
+    bTree.root.left = new binaryTree.node(5);
+    bTree.root.right = new binaryTree.node(2);
+
+    const postOrder = bTree.postOrder();
+
+    expect(postOrder).toEqual([5, 2, 9]);
+  });
+
+
+  it('Finds the largest number in the tree', () => {
+
+    bTree.root = new binaryTree.node(9);
+    bTree.root.left = new binaryTree.node(5);
+    bTree.root.right = new binaryTree.node(2);
+
+    const max = bTree.findMaxValue();
+
+    expect(max).toEqual(9);
+  });
+
+
+  it('Finds the largest number in the tree again', () => {
+
+    bTree.root = new binaryTree.node(2);
+
+    bTree.root.left = new binaryTree.node(1);
+    bTree.root.left.left = new binaryTree.node(3);
+
+    bTree.root.right = new binaryTree.node(5);
+    bTree.root.right.right = new binaryTree.node(2342);
+
+    const max = bTree.findMaxValue();
+
+    expect(max).toEqual(2342);
+  });
+
+
+  it('Traverses breadth-first', () => {
+
+    bTree.root = new binaryTree.node(15);
+
+    bTree.root.left = new binaryTree.node(5);
+    bTree.root.left.left = new binaryTree.node(4);
+    bTree.root.left.right = new binaryTree.node(8);
+    bTree.root.left.right.left = new binaryTree.node(3);
+    bTree.root.left.right.right = new binaryTree.node(14);
+
+    bTree.root.right = new binaryTree.node(20);
+    bTree.root.right.left = new binaryTree.node(28);
+    bTree.root.right.right = new binaryTree.node(30);
+    bTree.root.right.right.left = new binaryTree.node(12);
+    bTree.root.right.right.right = new binaryTree.node(133);
+
+    const breadthTest = bTree.breadthFirst();
+
+    expect(breadthTest).toEqual([15, 5, 20, 4, 8, 28, 30, 3, 14, 12, 133]);
+  });
+
+});
+
+// K-Ary Testing
+describe('K-Ary tree tests,', () => {
+
+  const tree = new fizzBuzzTree.tree(2);
+
+  tree.root = new fizzBuzzTree.node(15, tree.k);
+
+  tree.root.children[0] = new fizzBuzzTree.node(2, tree.k);
+  tree.root.children[1] = new fizzBuzzTree.node(4, tree.k);
+  tree.root.children[2] = new fizzBuzzTree.node(6, tree.k);
+
+  tree.root.children[0].children[0] = new fizzBuzzTree.node(8, tree.k);
+  tree.root.children[0].children[1] = new fizzBuzzTree.node(10, tree.k);
+  tree.root.children[1].children[0] = new fizzBuzzTree.node(12, tree.k);
+
+  const fbTree = fizzBuzzTree.fizzBuzzTree(tree);
+
+  test('If the value is divisible by 3, replace the value with “Fizz”', () => {
+
+    expect(fbTree.root.children[2].value).toEqual('Fizz');
+  });
+
+
+  test('If the value is divisible by 5, replace the value with “Buzz”', () => {
+
+    expect(fbTree.root.children[0].children[1].value).toEqual('Buzz');
+  });
+
+
+  test('If the value is divisible by 3 and 5, replace the value with “FizzBuzz”', () => {
+    // console.log(fbTree.root.value);
+    expect(fbTree.root.value).toEqual('FizzBuzz');
+  });
+
+
+  test('If the value is not divisible by 3 or 5, simply turn the number into a String.', () => {
+    // console.log(fbTree.root.children[1].value);
+    expect(fbTree.root.children[1].value).toEqual('4');
+  });
+
 });
