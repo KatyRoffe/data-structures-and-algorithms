@@ -29,6 +29,7 @@ hash()
 ### Challenge 31: HashMap Repeated Word
 
 Find the first repeated word in a book
+Collaborated with Cameron Walden
 
 #### Problem Domain
 
@@ -39,3 +40,15 @@ Find the first repeated word in a book
 > *input*: `"Once upon a time, there was a brave princess who..."` \
 > *output*: `a`
 
+### Challenge 32: HashMap Repeated Word
+
+Find common values in 2 binary trees.
+Collaborated with Cameron Walden
+
+#### Problem Domain
+
+- Write a function called `tree_intersection` that takes two binary trees as parameters.
+- Using your Hashmap implementation as a part of your algorithm, return a set of values found in both trees
+
+> *input*: \
+> *output*: 
