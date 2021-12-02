@@ -26,15 +26,3 @@ describe('Testing the HashTable', () => {
   });
 
 });
-
-describe('Tests hashmap repeated words', () => {
-
-  const test1 = 'Once upon a time, there was a brave princess who...';
-
-  test('Finds the first word to occur more than once in a string', () => {
-    let test = HashTable(test1);
-
-    expect(test).toEqual('a');
-  });
-
-});

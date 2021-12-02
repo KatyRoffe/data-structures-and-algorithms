@@ -54,26 +54,6 @@ class HashTable {
     return this.buckets[hash].head.value[key];
   }
 
-// challenge 31: repeatedWord
-
-repeatedWord(string) {
-
-  const newTable = new hashTable(1024);
-  // regex taken from Cullen Sharp with permission
-  const words = string.match(/((\b[^\s]+\b)((?<=\.\w).)?)/g);
-
-  for (let i = 0; i < words.length; i += 1) {
-    let key = words[i].toLowerCase();
-
-
-    if (newTable.contains(key)) {
-      return newTable.get(key);
-    }
-
-    newTable.add(key, key);
-  }
-};
-
 }
 
 
