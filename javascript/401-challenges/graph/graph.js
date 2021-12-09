@@ -52,6 +52,15 @@ class Graph {
     return [...this.adjacencyList.get(vertex)];
   }
 
+  getNodes(){
+    return this.adjacencyList;
+  }
+
+  size() {
+    return this.numberOfVertices;
+  }
+
+  // implemented in cc 35 due to demo, but it is a cc 36 feature
   breadthFirst(startVertex) {
     const queue = [];
     const visitedNodes = new Set();
@@ -75,14 +84,6 @@ class Graph {
         }
       }
     }
-  }
-
-  getNodes(){
-    return this.adjacencyList;
-  }
-
-  size() {
-    return this.numberOfVertices;
   }
 
 }
