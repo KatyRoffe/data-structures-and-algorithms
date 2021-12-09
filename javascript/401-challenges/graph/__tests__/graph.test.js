@@ -107,3 +107,38 @@ describe('Tests graph functionality', () => {
   });
 
 });
+
+
+// breadth first traversal test
+
+describe('Tests breadth-first functionality', () => {
+  const pandora = graph.addVertex('pandora');
+  const arendelle = graph.addVertex('arendelle');
+  const metroville = graph.addVertex('metroville');
+  const monstropolis = graph.addVertex('monstropolis');
+  const narnia = graph.addVertex('narnia');
+  const naboo = graph.addVertex('naboo');
+
+  graph.addDirectedEdge(pandora, arendelle);
+  graph.addDirectedEdge(arendelle, metroville);
+  graph.addDirectedEdge(arendelle, monstropolis);
+  graph.addDirectedEdge(metroville, monstropolis);
+  graph.addDirectedEdge(metroville, naboo);
+  graph.addDirectedEdge(metroville, narnia);
+  graph.addDirectedEdge(monstropolis, naboo);
+  graph.addDirectedEdge(narnia, naboo);
+
+  test('Should traverse breadth-first', () => {
+    let check = graph.breadthFirst(pandora);
+
+    expect(check.has(pandora)).toBeTruthy();
+    expect(check.has(arendelle)).toBeTruthy();
+  });
+
+  test('Tests number of nodes/vertices', () => {
+    let check = graph.breadthFirst(pandora);
+
+    expect(check.size).toEqual(6);
+  });
+
+});

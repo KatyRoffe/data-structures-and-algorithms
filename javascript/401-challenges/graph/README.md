@@ -36,3 +36,21 @@ size
   Arguments: none
   Returns the total number of nodes in the graph
 ```
+
+## Challenge 36
+
+### Problem Domain
+
+Extend the current implementation to include a Breadth First Traversal
+
+```plaintext
+breadth first
+  Arguments: Node
+  Return: A collection of nodes in the order they were visited.
+  Display the collection
+```
+
+### Graph Example
+[source](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-36/#example)
+
+![graph example](graph.png)
