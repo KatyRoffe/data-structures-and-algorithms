@@ -86,6 +86,23 @@ class Graph {
     }
   }
 
+  // business trip 
+
+  businessTrip(graph, array) {
+    let total = 0;
+
+    for (let i = 0; i < array.length - 1; i += 1) {
+      let neighbors = graph.getNeighbors(array[i]);
+      for (let j = 0; j < neighbors.length; j += 1) {
+        let nextValue = array[i + 1].value;
+        if (neighbors[j].vertex.value === nextValue) {
+          total += neighbors[j].weight;
+        }
+      }
+    }
+    return `true, $${total}`;
+  }
+
 }
 
 let graph = new Graph();
@@ -111,6 +128,13 @@ graph.addDirectedEdge(C, B);
 graph.addDirectedEdge(F, G);
 graph.addDirectedEdge(G, H);
 graph.addDirectedEdge(H, F);
+
+
+console.log(graph);
+console.log('List of Neighbors:', graph.getNeighbors(A));
+console.log('List of Nodes:', graph.getNodes());
+console.log('Size of Graph:', graph.size());
+console.log('Breadth First Traversal path:', graph.breadthFirst(A));
 
 
 module.exports = Vertex, Edge, Graph;

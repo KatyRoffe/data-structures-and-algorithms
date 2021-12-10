@@ -51,6 +51,23 @@ breadth first
 ```
 
 ### Graph Example
-[source](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-36/#example)
+
+[source](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-3/#example)
 
 ![graph example](graph.png)
+
+## Challenge 37
+
+### Problem Domain
+
+Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?
+
+```plaintext
+businessTrip
+  Arguments: graph, array of city names
+  Return: cost or null
+```
+
+### Graph Example
+
+[source](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-37/#example)
