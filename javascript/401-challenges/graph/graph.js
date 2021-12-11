@@ -86,7 +86,26 @@ class Graph {
     }
   }
 
-  // business trip 
+  //depth first traversal
+  depthFirst(vertex) {
+    const alreadyVisited = new Set();
+    alreadyVisited.add(vertex);
+
+    const traversal = (current, visited) => {
+      visited.add(current);
+      const neighbors = graph.getNeighbors(current);
+
+      for (let neighbor of neighbors) {
+        if (!visited.has(neighbor.vertex)) {
+          traversal(neighbor.vertex, visited);
+        }
+      }
+    };
+    traversal(vertex, alreadyVisited);
+    return alreadyVisited;
+  }
+
+  // business trip
 
   businessTrip(graph, array) {
     let total = 0;

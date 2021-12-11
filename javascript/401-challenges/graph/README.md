@@ -71,3 +71,20 @@ businessTrip
 ### Graph Example
 
 [source](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-37/#example)
+
+## Challenge 38
+
+### Problem Domain
+
+Conduct a depth first preorder traversal on a graph
+
+```plaintext
+depthFirst
+  Arguments: Node (Starting point of search)
+  Return: A collection of nodes in their pre-order depth-first traversal order
+  Program output: Display the collection
+```
+
+### Graph Example
+
+[source](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-38/#example)
