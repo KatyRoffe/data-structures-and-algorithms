@@ -142,11 +142,50 @@ describe('Tests breadth-first functionality', () => {
     expect(check.size).toEqual(6);
   });
 
+  //business trip
   test('Determines whether the trip is possible with direct flights, and how much it would cost', () => {
 
     expect(graph.businessTrip(graph, [pandora, metroville])).toEqual('true, $82');
     expect(graph.businessTrip(graph, [arendelle, monstropolis, naboo])).toEqual('true, $115');
   });
 
+});
+
+//depth first test
+describe('Tests depth-first functionality', () => {
+
+  const A = graph.addVertex('A');
+  const B = graph.addVertex('B');
+  const C = graph.addVertex('C');
+  const D = graph.addVertex('D');
+  const E = graph.addVertex('E');
+  const F = graph.addVertex('F');
+  const G = graph.addVertex('G');
+  const H = graph.addVertex('H');
+
+  graph.addDirectedEdge(A, B);
+  graph.addDirectedEdge(A, D);
+  graph.addDirectedEdge(C, G);
+  graph.addDirectedEdge(B, C);
+  graph.addDirectedEdge(B, D);
+  graph.addDirectedEdge(D, E);
+  graph.addDirectedEdge(D, H);
+  graph.addDirectedEdge(D, F);
+  graph.addDirectedEdge(H, F);
+
+
+  const test = graph.depthFirst(graph, A);
+  const array = Array.from(test);
+
+  console.log('DEPTH FIRST', array);
+
+  expect(array[0].value).toEqual('A');
+  expect(array[1].value).toEqual('B');
+  expect(array[2].value).toEqual('C');
+  expect(array[3].value).toEqual('G');
+  expect(array[4].value).toEqual('D');
+  expect(array[5].value).toEqual('E');
+  expect(array[6].value).toEqual('H');
+  expect(array[7].value).toEqual('F');
 
 });
